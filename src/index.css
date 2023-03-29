@@ -1,16 +1,17 @@
-/* c5fffd
-88d9e6
-dc602e
-aea3b0
-827081 */
+/* 88ccf1
+c1dff0
+3577a4
+2d848a
+2d898b */
 
 body {
   margin: 0;
-  background-color: #aea3b0;
+  background-color: #c1dff0;
 }
 
 header {
-  background-color: #827081;
+  background: #2d848a;
+  background: linear-gradient(to bottom, #2d848a 0%, #88CCF1 100%);
   width: 100px;
   height: 100vh;
   display: flex;
@@ -25,14 +26,29 @@ img {
   border-radius: 50%;
 }
 
+h1 {
+  color: #3587A4; 
+}
+
+.App{
+  display: flex;
+}
+
 .characterBtn {
   margin: 0;
   padding: 0;
   width: 90px;
   height: 90px;
-  background-color: #aea3b0;
+  background-color: #3587a4;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row;
 }
