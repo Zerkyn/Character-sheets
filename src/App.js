@@ -18,8 +18,12 @@ function App() {
   }, [])
 
   const showCharacter = (character) => {
+    if(character !== null){
     setCharacter(character)
     setShowChar(true)
+    } else {
+      setShowChar(false)
+    }
   }
 
   return (
