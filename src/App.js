@@ -15,7 +15,7 @@ function App() {
         setCharacters(res.data)
       })
       .catch(err => console.log(err))
-  }, [])
+  }, [characters])
 
   const showCharacter = (character) => {
     if(character !== null){
@@ -31,7 +31,7 @@ function App() {
       <Header characters={characters} showCharacter={showCharacter} />
       {showChar 
       ? <Character character={character} />
-      : <NewCharacter />}
+      : <NewCharacter characters={characters} showCharacter={showCharacter}/>}
       
     </div>
   );

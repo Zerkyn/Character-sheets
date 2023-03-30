@@ -7,9 +7,7 @@ module.exports = {
         race:'Air Genasi',
         level: 6,
         hp: 50,
-        class: [
-            'Fighter', 'Blood hunter'
-        ],
+        charClass: 'Fighter',
         stats: {
             str: 13,
             dex: 18,
