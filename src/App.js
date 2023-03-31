@@ -13,14 +13,15 @@ function App() {
     axios.get('http://localhost:5000/characters')
       .then(res => {
         setCharacters(res.data)
+        console.log(res.data)
       })
       .catch(err => console.log(err))
-  }, [characters])
+  }, [])
 
   const showCharacter = (character) => {
-    if(character !== null){
-    setCharacter(character)
-    setShowChar(true)
+    if (character !== null) {
+      setCharacter(character)
+      setShowChar(true)
     } else {
       setShowChar(false)
     }
@@ -29,10 +30,10 @@ function App() {
   return (
     <div className="App">
       <Header characters={characters} showCharacter={showCharacter} />
-      {showChar 
-      ? <Character character={character} />
-      : <NewCharacter characters={characters} showCharacter={showCharacter}/>}
-      
+      {showChar
+        ? <Character character={character} />
+        : <NewCharacter characters={characters} showCharacter={showCharacter} />}
+
     </div>
   );
 }
