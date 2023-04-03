@@ -20,17 +20,16 @@ const Character = (props) => {
             {!levelUp
                 ?
                 <div className="character">
-                    <h1>{props.character.name}</h1>
+                    <h1>{character.name}</h1>
                     <div className="main-info">
                         <h3>Level {character.level}</h3>
-                        <h3>{character.charClass}</h3>
+                        <h3>{character.character_class}</h3>
                         <h3>{character.race}</h3>
                         <div>
-                            {/* {!levelUp
-                        ? <h3>Health Points: {hp}/{character.hp}</h3>
-                        : <input value={character.hp} type='number' />
-                    } */}
-
+                            {!levelUp
+                                ? <h3>Health Points: {hp}/{character.hp}</h3>
+                                : <input value={character.hp} type='number' />
+                            }
                             {toggleHp
                                 ?
                                 <div>
@@ -39,10 +38,9 @@ const Character = (props) => {
                                 </div>
                                 :
                                 <button onClick={() => adjustHp()}>Adjust HP</button>}
-
                         </div>
                     </div>
-                    <section>
+                    <section className="stats-section">
                         <div>
                             <h4>Strength</h4>
                             <p>{character.strength}</p>
@@ -70,7 +68,7 @@ const Character = (props) => {
                     </section>
                     <button onClick={() => setLevelUp(true)}>Level UP</button>
                 </div>
-                : <LevelUp character={props.character} levelUp={setLevelUp} />}
+                : <LevelUp character={character} levelUp={setLevelUp} />}
         </div>
     )
 }

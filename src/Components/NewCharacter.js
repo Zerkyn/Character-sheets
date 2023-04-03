@@ -45,32 +45,66 @@ const NewCharacter = (props) => {
     return (
         <div className='main'>
             <form>
-                <div className='character'>
-                    <input placeholder='Character Name' onChange={(el) => setName(el.target.value)} />
-                    <div className='main-info'>
-                        <input type='number' placeholder='Level' onChange={(el) => setLevel(el.target.value)} />
-                        <select onChange={(el) => setCharClass(el.target.value)}>
-                            <option>Select Class</option>
-                            {classes.map((el, i) => {
-                                return <option key={i}>{el}</option>
-                            })}
-                        </select>
-                        <select onChange={(el) => setRace(el.target.value)}>
-                            <option>Select Race</option>
-                            {races.map((el, i) => {
-                                return <option key={i}>{el}</option>
-                            })}
-                        </select>
-                        <input type='number' placeholder='Health Points' onChange={(el) => setHP(el.target.value)} />
+                <div className='new-character'>
+                    <div className='txt_field'>
+                        <input onChange={(el) => setName(el.target.value)} type='text' required/>
+                        <span></span>
+                        <label>New Character</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setLevel(el.target.value)} required/>
+                        <span></span>
+                        <label>Level</label>
+                    </div>
+                    <select onChange={(el) => setCharClass(el.target.value)}>
+                        <option>Select Class</option>
+                        {classes.map((el, i) => {
+                            return <option key={i}>{el}</option>
+                        })}
+                    </select>
+                    <select onChange={(el) => setRace(el.target.value)}>
+                        <option>Select Race</option>
+                        {races.map((el, i) => {
+                            return <option key={i}>{el}</option>
+                        })}
+                    </select>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setHP(el.target.value)} required/>
+                        <span></span>
+                        <label>Health Points</label>
                     </div>
                 </div>
-                <div className='Stats'>
-                    <input type='number' placeholder='Strength' id='stat' onChange={(el) => setStr(el.target.value)} />
-                    <input type='number' placeholder='Dexterity' id='stat' onChange={(el) => setDex(el.target.value)} />
-                    <input type='number' placeholder='Constitution' id='stat' onChange={(el) => setCon(el.target.value)} />
-                    <input type='number' placeholder='Intelligence' id='stat' onChange={(el) => setInt(el.target.value)} />
-                    <input type='number' placeholder='Wisdom' id='stat' onChange={(el) => setWis(el.target.value)} />
-                    <input type='number' placeholder='Charisma' id='stat' onChange={(el) => setCha(el.target.value)} />
+                <div className='stats'>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setStr(el.target.value)} required/>
+                        <span></span>
+                        <label>Strength</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setDex(el.target.value)} required/>
+                        <span></span>
+                        <label>Dexterity</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setCon(el.target.value)} required/>
+                        <span></span>
+                        <label>Constitution</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setInt(el.target.value)} required/>
+                        <span></span>
+                        <label>Intelligence</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setWis(el.target.value)} required/>
+                        <span></span>
+                        <label>Wisdom</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type='number' onChange={(el) => setCha(el.target.value)} required/>
+                        <span></span>
+                        <label>Charisma</label>
+                    </div>
                 </div>
                 <button onClick={(e) => createCharacter(e)}>Create</button>
             </form>

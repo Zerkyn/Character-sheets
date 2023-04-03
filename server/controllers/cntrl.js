@@ -15,23 +15,24 @@ module.exports = {
     characters: (req, res) => {
         sequelize.query(`select * from characters join stats on characters.id = stats.character_id`)
             .then(dbRes => {
-                res.status(200).send(dbRes)
+                res.status(200).send(dbRes[0])
             })
             .catch(err => console.log(err))
     },
 
     newCharacter: (req, res) => {
-        const { name, race, level, hp, charClass, strength, } = req.body
+        const { name, race, level, hp, charClass } = req.body
         sequelize.query(`insert into characters (name, race, level, hp, character_class) 
         values ('${name}', '${race}', ${level}, ${hp}, '${charClass}');`
         )
             .then(dbRes => {
-                // console.log(dbRes[0])
+                console.log(dbRes[0])
             })
             .catch(err => console.log(err))
     },
 
     updateCharacter: (req, res) => {
+        console.log('pong')
         const { id } = req.params
 
     }
