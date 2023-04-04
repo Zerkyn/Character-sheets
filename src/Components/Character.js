@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import LevelUp from "./LevelUp";
+import Spells from './Spells'
+import Skills from "./Skills";
 
 const Character = (props) => {
-    const { character } = props
+    const { character, modifiers } = props
     let [hp, setHP] = useState(character.hp)
     let [toggleHp, setToggleHp] = useState(false)
     let [levelUp, setLevelUp] = useState(false)
@@ -43,28 +45,32 @@ const Character = (props) => {
                     <section className="stats-section">
                         <div>
                             <h4>Strength</h4>
-                            <p>{character.strength}</p>
+                            <button onClick={() => modifiers(character.strength)}>{character.strength}</button>
                         </div>
                         <div>
                             <h4>Dexterity</h4>
-                            <p>{character.dexterity}</p>
+                            <button onClick={() => modifiers(character.dexterity)}>{character.dexterity}</button>
                         </div>
                         <div>
                             <h4>Constitution</h4>
-                            <p>{character.constitution}</p>
+                            <button onClick={() => modifiers(character.constitution)}>{character.constitution}</button>
                         </div>
                         <div>
                             <h4>Intelligence</h4>
-                            <p>{character.intelligence}</p>
+                            <button onClick={() => modifiers(character.intelligence)}>{character.intelligence}</button>
                         </div>
                         <div>
                             <h4>Wisdom</h4>
-                            <p>{character.wisdom}</p>
+                            <button onClick={() => modifiers(character.wisdom)}>{character.wisdom}</button>
                         </div>
                         <div>
                             <h4>Charisma</h4>
-                            <p>{character.charisma}</p>
+                            <button onClick={() => modifiers(character.charisma)}>{character.charisma}</button>
                         </div>
+                    </section>
+                    <section>
+                        <Spells id={character.id}/>
+                        <Skills />
                     </section>
                     <button onClick={() => setLevelUp(true)}>Level UP</button>
                 </div>

@@ -13,7 +13,7 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 
 module.exports = {
     characters: (req, res) => {
-        sequelize.query(`select * from characters join stats on characters.id = stats.character_id`)
+        sequelize.query(`select * from characters`)
             .then(dbRes => {
                 res.status(200).send(dbRes[0])
             })
@@ -35,5 +35,13 @@ module.exports = {
         console.log('pong')
         const { id } = req.params
 
+    },
+
+    getSpells: (req, res) => {
+        const {id} = req.params
+        sequelize.query(`select * from spells where character_id = ${id}`)
+            .then(dbRes => {
+                res.status(200).send(dbRes[0])
+            })
     }
 }

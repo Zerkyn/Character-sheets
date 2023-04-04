@@ -13,6 +13,7 @@ c1dff0
 body {
   margin: 0;
   background-color: #6D5959;
+  font-family: 'Gemunu Libre', sans-serif;
 }
 
 header {
@@ -22,6 +23,7 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
@@ -35,6 +37,19 @@ h1 {
   margin-right: auto;
   margin-left: auto;
   color: #6D5959; 
+}
+
+h2{
+  margin: 0;
+}
+
+h3{
+  color:#6D5959;
+  margin: 0;
+}
+
+h4{
+  margin: 0;
 }
 
 form{
@@ -60,13 +75,10 @@ form button:hover{
   cursor: pointer;
 }
 
-h3{
-  color:#6D5959;
-  margin: 0;
-}
-
-h4{
-  margin: 0;
+ul{
+  padding-left: 0;
+  color:white;
+  list-style-type: none;
 }
 
 .App{
@@ -75,14 +87,20 @@ h4{
 
 .characterBtn {
   margin: 0;
+  margin-top: 5px;
   padding: 0;
   width: 90px;
   height: 90px;
   background-color: #9DCBBA;
   border-radius: 50%;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.characterBtn:hover{
+  background-color: #04F06A;
 }
 
 .main {
@@ -189,10 +207,12 @@ select {
   border-radius: 5px;
 }
 select:hover{
-  background: #04F06A
+  background: #04F06A;
+  color:black;
 }
 select option{
   background-color: #454545;
+  color: white
 }
 
 .stats-section{
@@ -207,4 +227,43 @@ select option{
   align-items: center;
   justify-content: space-around;
 }
+
+.roll{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+.roll .dice{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.roll button{
+  height: 30px;
+  cursor: pointer;
+  width: 70px;
+  background-color: #9DCBBA;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.roll button:hover{
+  background-color: #04F06A;
+}
+
+.rolled-total{
+  width: 70px;
+  height: 50px;
+  background-color: #04F06A;
+  border-radius: 5px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
