@@ -104,12 +104,12 @@ const LevelUp = props => {
                     <label>Charisma: {character.charisma}</label>
                 </div>
             </section>
-            <button onClick={() => updateCharacter()}>Level Up Stats</button>
+            <button onClick={() => updateCharacter()} className="character-update">Level Up Stats</button>
             <section className="new-spell-inventory">
                 {!addSpells
                 ?
                     <div>
-                        <button onClick={() => setAddSpells(true)}>Add Spells</button>
+                        <button onClick={() => setAddSpells(true)} className="character-update">Add Spells</button>
                     </div>
                 :
                     <div className="new-spell">
@@ -122,8 +122,8 @@ const LevelUp = props => {
                             <textarea onChange={(el) => setSpellDesc(el.target.value)} placeholder="Spell Description"></textarea>
                         </div>
                         <div>
-                            <button onClick={(e) => addSpell(e)}>Add Spell</button>
-                            <button onClick={() => {
+                            <button onClick={(e) => addSpell(e)} className="character-update">Add Spell</button>
+                            <button  className="character-update" onClick={() => {
                                 setAddSpells(false)
                                 setSpellName('')
                                 setSpellDesc('')
@@ -134,7 +134,7 @@ const LevelUp = props => {
                 {!addItems
                 ?
                     <div>
-                        <button onClick={() => setAddItems(true)}>Add Items</button>
+                        <button onClick={() => setAddItems(true)} className="character-update">Add Items</button>
                     </div>
                 :
                     <div className="new-spell">
@@ -147,8 +147,8 @@ const LevelUp = props => {
                             <textarea onChange={(el) => setItemDesc(el.target.value)} placeholder="Item Description"></textarea>
                         </div>
                         <div>
-                            <button onClick={(e) => addItem(e)}>Add Item</button>
-                            <button onClick={() => {
+                            <button onClick={(e) => addItem(e)} className="character-update">Add Item</button>
+                            <button className="character-update" onClick={() => {
                                 setAddItems(false)
                                 setItemName('')
                                 setItemDesc('')

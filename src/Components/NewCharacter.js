@@ -35,6 +35,7 @@ const NewCharacter = (props) => {
                 props.characters = res.data 
             })
             .catch(err => console.log(err))
+            window.location.reload()
     }
 
 
@@ -45,7 +46,7 @@ const NewCharacter = (props) => {
                     <div className='txt_field'>
                         <input onChange={(el) => setName(el.target.value)} type='text' required/>
                         <span></span>
-                        <label>New Character</label>
+                        <label>Character Name</label>
                     </div>
                     <div className='txt_field'>
                         <input type='number' onChange={(el) => setLevel(el.target.value)} required/>

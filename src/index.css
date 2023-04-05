@@ -149,6 +149,7 @@ textarea{
   width: 80%;
   background-color: white;
   align-items: center;
+  border-radius: 10px;
 }
 
 .character-info{
@@ -321,6 +322,22 @@ textarea{
   justify-content: space-around;
 }
 
+.character-update{
+  background-color: #454545;
+  border: none;
+  height: 25px;
+  border-radius: 5px;
+  color: white;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.character-update:hover{
+  background-color: #04F06A;
+  cursor: pointer;
+  color: white;
+}
+
 .new-spell{
   width: 30%;
   text-align: center;
@@ -403,3 +420,4 @@ textarea{
   height: 50%;
   color: white;
 }
+
