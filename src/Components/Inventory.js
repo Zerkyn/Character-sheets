@@ -1,16 +1,16 @@
 import React from "react";
 
 
-const Spells = (props) => {
-    const {spells} = props
+const Inventory = (props) => {
+    const {inventory} = props
 
     return(
-        <div className="spells">
-            <h3>Spells</h3>
-            {spells.map((el, i) => {
+        <div className="inventory">
+            <h3>Inventory</h3>
+            {inventory.map((el, i) => {
                 return (
                     <div key={i}>
-                        <h5 >{el.spell_name}</h5>
+                        <h5 >{el.item_name}</h5>
                         <article >{el.description}</article>
                     </div>
                     )
@@ -19,4 +19,4 @@ const Spells = (props) => {
     )
 }
 
-export default Spells
+export default Inventory

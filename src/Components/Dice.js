@@ -51,7 +51,7 @@ const Dice = (props) => {
         })
         if(minusMod){
             if(roll.length === 1){
-                setRolledTotal(roll[0])
+                setRolledTotal(roll[0] - modifier)
             } else {   
                 setRolledTotal(roll.reduce((acc, cur) => {
                     let total = acc + cur 
@@ -59,10 +59,14 @@ const Dice = (props) => {
                 }))
             }
         } else {
-            setRolledTotal(roll.reduce((acc, cur) => {
-                let total = acc + cur 
-                return total + modifier
-            }))
+            if(roll.length === 1){
+                setRolledTotal(roll[0] + modifier)
+            } else {   
+                setRolledTotal(roll.reduce((acc, cur) => {
+                    let total = acc + cur 
+                    return total + modifier
+                }))
+            }
         }
         console.log(roll)
         setSelectedDice([])

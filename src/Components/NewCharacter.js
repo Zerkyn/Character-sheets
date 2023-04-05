@@ -24,19 +24,15 @@ const NewCharacter = (props) => {
             charClass: charClass,
             level: level,
             hp: hp,
-            stats: {
-                str: str,
-                dex: dex,
-                con: con,
-                int: int,
-                wis: wis,
-                cha: cha
-            }
+            str: str,
+            dex: dex,
+            con: con,
+            int: int,
+            wis: wis,
+            cha: cha
         })
             .then(res => {
-                console.log(res.data)
-                props.characters = res.data
-
+                props.characters = res.data 
             })
             .catch(err => console.log(err))
     }

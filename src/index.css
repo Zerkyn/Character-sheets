@@ -36,16 +36,17 @@ img {
 h1 {
   margin-right: auto;
   margin-left: auto;
-  color: #6D5959; 
+  color: #454545; 
 }
 
 h2{
   margin: 0;
+  color: #6D5959;
 }
 
 h3{
-  color:#6D5959;
   margin: 0;
+  color: #454545;
 }
 
 h4{
@@ -79,6 +80,32 @@ ul{
   padding-left: 0;
   color:white;
   list-style-type: none;
+}
+
+select {
+  border: none;
+  color: white;
+  background: #454545;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+select:hover{
+  background: #04F06A;
+  color:black;
+}
+select option{
+  background-color: #454545;
+  color: white
+}
+
+textarea{
+  outline-color: #04F06A;
+  border-color: #454545;
+  resize: none;
+  width: 100%;
+  height: 150px;
+  margin-top: 10px;
 }
 
 .App{
@@ -198,22 +225,6 @@ ul{
  width: 0px;
 }
 
-select {
-  border: none;
-  color: white;
-  background: #454545;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-select:hover{
-  background: #04F06A;
-  color:black;
-}
-select option{
-  background-color: #454545;
-  color: white
-}
 
 .stats-section{
   display: flex;
@@ -264,6 +275,131 @@ select option{
   justify-content: center;
   align-items: center;
 }
+.rolled-total h2{
+  color: black;
+}
 
+.spell-skill-inventory{
+  display: flex;
+  margin: 10px;
+  width: 100%;
+  justify-content: space-around;
+}
+.spell-skill-inventory h3{
+  text-align: center;
+}
 
+.spells{
+  width: 33%;
+  margin-left: 10px;
+  margin-right: 5px;
+}
 
+.skills{
+  width: 33%;
+  border: 2px solid #6D5959;
+}
+
+.skill-name{
+  margin: 5px;
+  border-bottom: 1px solid #454545;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inventory{
+  width: 33%;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.new-spell-inventory{
+  margin-top: 20px;
+  width: 100%;
+  height:30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.new-spell{
+  width: 30%;
+  text-align: center;
+}
+
+.stats-section{
+  margin-top: 10px;
+  
+  background-color: #9DCBBA;
+  width: 100%;
+  height: 7%;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+
+.stats-section div{
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.stats-section button{
+  border: 1px solid #454545;
+  border-radius: 5px;
+  width: 70%;
+  height:  50%
+}
+
+.stats-section button:hover{
+  cursor: pointer;
+  background-color: #04F06A;
+}
+
+.character-change-btn{
+  background-color: #454545;
+  height: 30px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.character-change-btn:hover{
+  background-color: #04F06A;
+  cursor: pointer;
+  color: black;
+}
+
+.healthBtn-off{
+  background-color: #454545;
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+}
+.healthBtn-on{
+  height: 100%;
+  color: white;
+}
+
+.healthBtn-off:hover{
+  color: black;
+  background-color: #04F06A;
+  cursor: pointer;
+}
+
+.healthBtn-on input{
+  border: none;
+  height: 30px;
+  outline-color:  #04F06A;
+  cursor: pointer;
+}
+
+.healthBtn-on button{
+  background-color: #454545;
+  border-radius: 5px;
+  border: none;
+  width: 100px;
+  height: 50%;
+  color: white;
+}

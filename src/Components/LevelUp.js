@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios'
 
 const LevelUp = props => {
-    const {character} = props
-    console.log(character)
+    const {character, levelUp} = props
     const [level, setLevel] = useState(null)
     const [hp, setHP] = useState(null)
     const [str, setStr] = useState(null)
@@ -12,23 +11,48 @@ const LevelUp = props => {
     const [int, setInt] = useState(null)
     const [wis, setWis] = useState(null)
     const [cha, setCha] = useState(null)
+    const [addSpells, setAddSpells] = useState(false)
+    const [spellName, setSpellName] = useState('')
+    const [spellDesc, setSpellDesc] = useState('')
+    const [addItems, setAddItems] = useState(false)
+    const [itemName, setItemName] = useState('')
+    const [itemDesc, setItemDesc] = useState('')
 
-    const updateCharacter = (e) => {
-        e.preventDefault()
+
+    const updateCharacter = () => {
         axios.put(`http://localhost:5000/characters/${character.id}`, {
             id: character.id,
             level,
             hp,
-            stats:{
-                str,
-                dex,
-                con,
-                int,
-                wis,
-                cha
-            }
+            str,
+            dex,
+            con,
+            int,
+            wis,
+            cha
         })
-            .catch(err => console.log(err))
+            .then( window.location.reload(false))
+            levelUp(false)
+    }
+
+    const addSpell = (e) => {
+        e.preventDefault()
+        axios.post(`http://localhost:5000/spells/${character.id}`, {spellName: spellName, spellDesc: spellDesc})
+        .then(() => {
+            setSpellName('')
+            setSpellDesc('')
+            window.location.reload(false)
+        })
+    }
+
+    const addItem = (e) => {
+        e.preventDefault()
+        axios.post(`http://localhost:5000/inventory/${character.id}`,{ itemName: itemName, itemDesc: itemDesc})
+        .then(() => {
+            setItemName('')
+            setItemDesc('')
+            window.location.reload(false)
+        })
     }
 
     return (
@@ -80,7 +104,59 @@ const LevelUp = props => {
                     <label>Charisma: {character.charisma}</label>
                 </div>
             </section>
-            <button onClick={(e) => updateCharacter(e)}>Finish Level Up</button>
+            <button onClick={() => updateCharacter()}>Level Up Stats</button>
+            <section className="new-spell-inventory">
+                {!addSpells
+                ?
+                    <div>
+                        <button onClick={() => setAddSpells(true)}>Add Spells</button>
+                    </div>
+                :
+                    <div className="new-spell">
+                        <div className="txt_field">
+                            <input onChange={(el) => setSpellName(el.target.value)} required/>
+                            <span></span>
+                            <label>Spell Name</label>
+                        </div>
+                        <div>
+                            <textarea onChange={(el) => setSpellDesc(el.target.value)} placeholder="Spell Description"></textarea>
+                        </div>
+                        <div>
+                            <button onClick={(e) => addSpell(e)}>Add Spell</button>
+                            <button onClick={() => {
+                                setAddSpells(false)
+                                setSpellName('')
+                                setSpellDesc('')
+                            }}>Cancel</button>
+                        </div>
+                    </div>
+                }
+                {!addItems
+                ?
+                    <div>
+                        <button onClick={() => setAddItems(true)}>Add Items</button>
+                    </div>
+                :
+                    <div className="new-spell">
+                        <div className="txt_field">
+                            <input onChange={(el) => setItemName(el.target.value)} required/>
+                            <span></span>
+                            <label>Item Name</label>
+                        </div>
+                        <div>
+                            <textarea onChange={(el) => setItemDesc(el.target.value)} placeholder="Item Description"></textarea>
+                        </div>
+                        <div>
+                            <button onClick={(e) => addItem(e)}>Add Item</button>
+                            <button onClick={() => {
+                                setAddItems(false)
+                                setItemName('')
+                                setItemDesc('')
+                            }}>Cancel</button>
+                        </div>
+                    </div>
+                }
+            </section>
         </div>
     )
 }
